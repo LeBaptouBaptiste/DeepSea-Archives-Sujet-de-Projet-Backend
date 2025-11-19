@@ -40,7 +40,21 @@ function createApp(deps = {}) {
         res.send(swagger_1.swaggerSpec);
     });
     // Toutes les opérations utilisateur doivent être protégées par JWT.
-    app.use(common_1.auth.authMiddleware);
+    // Development mode: allow bypassing auth when DISABLE_AUTH=true
+    const disableAuth = process.env.DISABLE_AUTH === 'true';
+    if (disableAuth) {
+        common_1.logger.warn('auth_disabled', {
+            message: '⚠️  AUTHENTICATION DISABLED - Development mode only!',
+        });
+        app.use((req, res, next) => {
+            // Mock user for development
+            req.user = { id: 1, role: 'USER', reputation: 0 };
+            next();
+        });
+    }
+    else {
+        app.use(common_1.auth.authMiddleware);
+    }
     // Routes principales
     (0, speciesRoutes_1.default)(app, resolvedDeps);
     (0, observationRoutes_1.default)(app, resolvedDeps);

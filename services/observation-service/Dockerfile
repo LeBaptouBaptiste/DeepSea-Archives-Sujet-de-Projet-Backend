@@ -8,6 +8,8 @@ COPY packages/common ./packages/common
 COPY services/observation-service/package*.json services/observation-service/tsconfig.json ./services/observation-service/
 COPY services/observation-service/prisma ./services/observation-service/prisma
 COPY services/observation-service/src ./services/observation-service/src
+# Scripts utilitaires (ex: génération de token ADMIN pour Swagger)
+COPY services/observation-service/scripts ./services/observation-service/scripts
 
 # Installer les dépendances du service (incluant @deepsea/common en file:../../packages/common)
 WORKDIR /app/services/observation-service
@@ -32,5 +34,3 @@ WORKDIR /app/services/observation-service
 EXPOSE 4002
 
 CMD ["node", "dist/server.js"]
-
-

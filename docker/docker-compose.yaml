@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: deepsea
       POSTGRES_DB: deepsea
     ports:
-      - '5435:5435'
+      - '5435:5432'
     volumes:
       - deepsea-postgres-data:/var/lib/postgresql/data
     networks:

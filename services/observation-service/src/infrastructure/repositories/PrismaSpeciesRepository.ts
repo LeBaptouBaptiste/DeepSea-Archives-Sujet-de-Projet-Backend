@@ -6,7 +6,8 @@ import type { SpeciesListOptions } from '../../domain/repositories/SpeciesReposi
 
 export const PrismaSpeciesRepository = {
   async create(species: SpeciesProps) {
-    return prisma.species.create({ data: species as any });
+    const { id, ...rest } = species;
+    return prisma.species.create({ data: rest as any });
   },
 
   async findById(id: number) {

@@ -10,7 +10,9 @@ import type { ObservationHistoryProps } from '../../domain/entities/ObservationH
 
 export const PrismaObservationRepository = {
   async create(observation: ObservationProps) {
-    return prisma.observation.create({ data: observation as any });
+    // Ne pas passer l'id (autoincrement) à Prisma
+    const { id, ...rest } = observation;
+    return prisma.observation.create({ data: rest as any });
   },
 
   async findById(id: number) {
@@ -43,7 +45,7 @@ export const PrismaObservationRepository = {
         authorId: Number(authorId),
         deletedAt: null,
       },
-      orderBy: { createdAt: 'desc' },
+      orderBy: { createdAt: 'asc' },
     });
   },
 

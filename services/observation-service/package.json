@@ -11,7 +11,8 @@
     "start": "node dist/server.js",
     "test": "node -e \"console.log('observation-service tests placeholder')\"",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:generate": "prisma generate"
+    "prisma:generate": "prisma generate",
+    "generate-admin-token": "node scripts/generate-admin-token.js"
   },
   "dependencies": {
     "@deepsea/common": "file:../../packages/common",
