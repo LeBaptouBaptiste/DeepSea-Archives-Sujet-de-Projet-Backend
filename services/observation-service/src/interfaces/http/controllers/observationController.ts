@@ -9,11 +9,19 @@ async function notImplemented(req: any, res: any) {
   });
 }
 
-module.exports = {
-  createObservation: notImplemented, // POST /observations
-  listObservationsForSpecies: notImplemented, // GET /species/:id/observations
-  validateObservation: notImplemented, // POST /observations/:id/validate
-  rejectObservation: notImplemented, // POST /observations/:id/reject
-};
+export async function createObservation(req: any, res: any) {
+  return notImplemented(req, res);
+}
 
+export async function listObservationsForSpecies(req: any, res: any) {
+  return notImplemented(req, res);
+}
+
+export async function validateObservation(req: any, res: any) {
+  return notImplemented(req, res);
+}
+
+export async function rejectObservation(req: any, res: any) {
+  return notImplemented(req, res);
+}
 

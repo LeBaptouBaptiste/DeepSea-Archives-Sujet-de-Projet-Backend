@@ -9,10 +9,15 @@ async function notImplemented(req: any, res: any) {
   });
 }
 
-module.exports = {
-  createSpecies: notImplemented, // POST /species
-  getSpeciesById: notImplemented, // GET /species/:id
-  listSpecies: notImplemented, // GET /species
-};
+export async function createSpecies(req: any, res: any) {
+  return notImplemented(req, res);
+}
 
+export async function getSpeciesById(req: any, res: any) {
+  return notImplemented(req, res);
+}
+
+export async function listSpecies(req: any, res: any) {
+  return notImplemented(req, res);
+}
 

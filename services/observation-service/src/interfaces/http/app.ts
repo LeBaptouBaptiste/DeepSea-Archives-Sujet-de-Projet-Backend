@@ -1,13 +1,13 @@
-const express = require('express');
-const { auth, errorHandler, notFoundHandler } = require('@deepsea/common');
-const registerSpeciesRoutes = require('./routes/speciesRoutes');
-const registerObservationRoutes = require('./routes/observationRoutes');
+import express from 'express';
+import { auth, errorHandler, notFoundHandler } from '@deepsea/common';
+import registerSpeciesRoutes from './routes/speciesRoutes';
+import registerObservationRoutes from './routes/observationRoutes';
 
 /**
  * Couche interfaces (HTTP) – composition de l'app Express.
  * On injectera plus tard les use cases/domain dans les contrôleurs via deps.
  */
-function createApp(deps: any = {}) {
+export function createApp(deps: any = {}) {
   const app = express();
   app.use(express.json());
 
@@ -24,7 +24,5 @@ function createApp(deps: any = {}) {
 
   return app;
 }
-
-module.exports = { createApp };
 
 

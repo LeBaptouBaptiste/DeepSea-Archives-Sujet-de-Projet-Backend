@@ -1,11 +1,11 @@
-const express = require('express');
-const speciesController = require('../controllers/speciesController');
+import express from 'express';
+import * as speciesController from '../controllers/speciesController';
 
 /**
  * Routes HTTP pour les espèces.
  * À ce niveau, on ne met que le câblage Express, la logique métier est ailleurs.
  */
-function registerSpeciesRoutes(app: any, deps: any) {
+export default function registerSpeciesRoutes(app: any, deps: any) {
   const router = express.Router();
 
   router.post('/species', speciesController.createSpecies);
@@ -14,7 +14,4 @@ function registerSpeciesRoutes(app: any, deps: any) {
 
   app.use('/', router);
 }
-
-module.exports = registerSpeciesRoutes;
-
 

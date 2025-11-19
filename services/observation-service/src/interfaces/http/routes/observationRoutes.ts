@@ -1,10 +1,10 @@
-const express = require('express');
-const observationController = require('../controllers/observationController');
+import express from 'express';
+import * as observationController from '../controllers/observationController';
 
 /**
  * Routes HTTP pour les observations et leur validation.
  */
-function registerObservationRoutes(app: any, deps: any) {
+export default function registerObservationRoutes(app: any, deps: any) {
   const router = express.Router();
 
   router.post('/observations', observationController.createObservation);
@@ -23,7 +23,4 @@ function registerObservationRoutes(app: any, deps: any) {
 
   app.use('/', router);
 }
-
-module.exports = registerObservationRoutes;
-
 
