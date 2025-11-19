@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: deepsea
       POSTGRES_DB: deepsea
     ports:
-      - '5432:5432'
+      - '5435:5432'
     volumes:
       - deepsea-postgres-data:/var/lib/postgresql/data
     networks:
@@ -32,7 +32,9 @@ services:
       - deepsea-network
 
   observation-service:
-    build: ../services/observation-service
+    build:
+      context: ..
+      dockerfile: services/observation-service/Dockerfile
     container_name: deepsea-observation-service
     restart: unless-stopped
     environment:
