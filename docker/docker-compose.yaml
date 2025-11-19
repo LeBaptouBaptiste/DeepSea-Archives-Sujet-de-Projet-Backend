@@ -31,21 +31,21 @@ services:
     networks:
       - deepsea-network
 
-  # Exemple de configuration pour un microservice (à activer quand le Dockerfile existera)
-  # observation-service:
-  #   build: ../services/observation-service
-  #   container_name: deepsea-observation-service
-  #   restart: unless-stopped
-  #   environment:
-  #     # URL utilisée par Prisma ou autre ORM
-  #     DATABASE_URL: postgresql://deepsea:deepsea@postgres:5432/deepsea?schema=public
-  #     JWT_SECRET: super-secret-change-me
-  #   depends_on:
-  #     - postgres
-  #   ports:
-  #     - '4002:4002'
-  #   networks:
-  #     - deepsea-network
+  observation-service:
+    build: ../services/observation-service
+    container_name: deepsea-observation-service
+    restart: unless-stopped
+    environment:
+      # URL utilisée par Prisma dans observation-service
+      DATABASE_URL: postgresql://deepsea:deepsea@postgres:5432/deepsea?schema=public
+      JWT_SECRET: super-secret-change-me
+      OBSERVATION_SERVICE_PORT: 4002
+    depends_on:
+      - postgres
+    ports:
+      - '4002:4002'
+    networks:
+      - deepsea-network
 
 networks:
   deepsea-network:
