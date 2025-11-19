@@ -1,0 +1,26 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "description": "Authentification service for DeepSea Project",
+  "license": "ISC",
+  "author": "LeBaptouBaptiste",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node.js",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "dotenv": "^16.4.5",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "prisma": "^6.19.0"
+  }
+}
