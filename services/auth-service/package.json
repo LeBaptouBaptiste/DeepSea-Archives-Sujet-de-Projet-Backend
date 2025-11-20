@@ -8,7 +8,7 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "nodemon src/server.ts",
-    "build": "tsc",
+    "build": "npm run generate && tsc",
     "test": "jest",
     "start": "node dist/server.js",
     "generate": "prisma generate --schema=src/prisma/schema.prisma",
